@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="question">
+    <div class="row">
+        <div class="col-3">
+            <div class="question-avatar">
+                <img src="{% static "img/avatar1.jpeg" %}" alt="avatar">
+            </div>
+            <div class="like">
+              <button type="button" class="btn btn-primary" id="likeButton">
+                  <span class="like-icon">👍</span>
+                  <span class="like-count">0</span>
+              </button>
+          </div>
+
+        </div>
+        <div class="col-6">
+            <h2><a href="{% url "answerPage" question.id %}"> {{question.title}} </a></h2>
+            <div class="question-text"> {{question.text}}
+                <div class="row">
+                <div class="col-4">
+                    Answer(3)
+                </div>
+                <div class="col-8">
+                    Tags: <a href="#">perl</a>, <a href="#">python</a>
+                </div>
+                </div>
+            </div>
+          </div>
+    </div>
+</div>
