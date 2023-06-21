@@ -88,28 +88,32 @@ main > .container {
     margin-top: 400px;
 }
 
-.create-title{
-    height: 40px;
-    border: 2px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 10px;
+#help {
+    max-width: 1px;
 }
 
-.create-text{
-    height: 440px;
+#create-title {
     border: 2px solid black;
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
+    width: 100%;
 }
 
-.create-tags{
-    height: 40px;
+#create-text{
     border: 2px solid black;
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 10px;
+    width: 100%;
+}
+
+#create-tags{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 input[type="login"] {

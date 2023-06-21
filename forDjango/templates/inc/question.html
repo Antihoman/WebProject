@@ -6,23 +6,47 @@
             <div class="question-avatar">
                 <img src="{% static "img/avatar1.jpeg" %}" alt="avatar">
             </div>
-            <div class="like">
-              <button type="button" class="btn btn-primary" id="likeButton">
-                  <span class="like-icon">👍</span>
-                  <span class="like-count">0</span>
-              </button>
-          </div>
+            <button type="button" class="btn btn-primary" id="likeButton" onclick="toggleRating()">
+                <span class="like-icon">👍</span>
+                <span class="like-count" id="rating">{{question.rating}}</span>
+                </button>
+                
+                <script>
+                var ratingValue = {{question.rating}}; // Получение начального значения рейтинга
+                
+                function toggleRating() {
+                var ratingElement = document.getElementById('rating');
+                
+                if (ratingElement.classList.contains('liked')) {
+                // Удаление значения из рейтинга
+                ratingValue -= 1;
+                ratingElement.classList.remove('liked');
+                } else {
+                // Добавление значения в рейтинг
+                ratingValue += 1;
+                ratingElement.classList.add('liked');
+                }
+                
+                ratingElement.textContent = ratingValue;
+                }
+                </script>
 
         </div>
         <div class="col-6">
-            <h2><a href="{% url "answerPage" question.id %}"> {{question.title}} </a></h2>
+            <h2><a href="{% url "answerPage" id=question.id %}"> {{question.title}} </a></h2>
             <div class="question-text"> {{question.text}}
                 <div class="row">
                 <div class="col-4">
-                    Answer(3)
+                    Answers {{question.answers_count}}
                 </div>
                 <div class="col-8">
-                    Tags: <a href="#">perl</a>, <a href="#">python</a>
+                        {% for tag in question.tags.all%}
+                    
+                        <a href="{% url "tag_page" tag_name=tag.name %}">
+                            {{tag.name}}
+                        </a>
+                        {% endfor %}
+                    
                 </div>
                 </div>
             </div>

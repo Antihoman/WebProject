@@ -45,11 +45,12 @@
         <div class="login">
           <div class="row">
             <div class="col-2">
-              <a href="#">Ask!</a>
+              <a class="me-3 my-auto hover" href="{%url 'askQuest' %}"
+                    ><img src="{% static "img/add2.svg" %}" alt="addQuestion" class="d-inline-block" /></a>
             </div>
             <div class="col-2">
               <div class="top-avatar">
-                <img src="../static/img/avatar1.jpeg" alt="avatar">
+                <img src="{% static "img/avatar1.jpeg" %}" alt="avatar">
               </div>
             </div>
             <div class="col-2">
@@ -57,8 +58,8 @@
             </div>
             <div class="col-6">
 
-                  <a href="http://localhost:8000/settings/"> Settings </a>,      
-                  <a href="http://localhost:8000/log/"> log out </a>
+                  <a href="/settingsPage"> Settings </a>,      
+                  <a href="/logInPage"> log out </a>
             </div>
         </div>
 
@@ -85,20 +86,14 @@
         </div>
         <div class="col-3">
           <div class="right-side">
-            <div class="popular">
-                <h1 class="mt-0"> Popular Tags</i></h1>
-                <a href="#"> perl </a>,  <a href="#">   python </a>,  <a href="#">  TechnoPark</a>
-            </div>
-            <div class="best-members">
-                <h1 class="mt-4"> Best Members</i></h1>
-                <div class="b-members">
-                    <a href="#"> person1 </a>
-                    <a href="#"> person2 </a>
-                    <a href="#"> person3 </a>
-                    <a href="#"> person4 </a>
-                    <a href="#"> person5 </a>
-                </div>
-            </div>
+            <div class="container-lg p-1vw mb-4 mt-3">
+              <div class="row">
+                  <div class="col-md-4 col-lg-3 order-md-2 mt-md-4 pt-lg-3 px-md-1 row mx-auto mb-auto">
+                    {% include "inc/intTags.html"%}
+                    {% include "inc/intMembers.html"%}
+                  </div>
+              </div>
+          </div>
         </div>
         </div>
             

@@ -1,0 +1,33 @@
+{% load static %}
+<span href="#" class="р5 mx-2 m-0 text-secondary align-self-center d-inline-flex">{{ answer.author }}</span>
+
+<div class="answer">
+    <div class="row">
+        <div class="col-3">
+            <div class="question-avatar">
+                <img src="{% static "img/avatar3.jpeg" %}" alt="avatar">
+            </div>
+            <div class="like">
+              <button type="button" class="btn btn-primary" id="likeButton">
+                  <span class="like-icon">👍</span>
+                  <span class="like-count">{{answer.rating}}</span>
+              </button>
+          </div>
+  
+        </div>
+        <div class="col-6">
+            <h2>{{answer.title}} </h2>
+            <div class="question-text"> {{answer.text}}
+  
+            </div>
+            <div class="form-check mb-3">
+                {% if answer.correct %}
+                  <input class="form-check-input" type="checkbox" value="" checked />
+                {% else %}
+                  <input class="form-check-input" type="checkbox" value="" />
+                {% endif %}
+                <label class="form-check-label" for="checkCorrect">Correct</label>
+              </div>
+        </div>
+    </div>
+</div>

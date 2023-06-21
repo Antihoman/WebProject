@@ -21,6 +21,11 @@ from askme import views
 urlpatterns = [
     path('', views.mainPage, name = "mainPage"),
     path('admin/', admin.site.urls),
-    path('answerPage/<int:question_id>/', views.answerPage, name = "answerPage"),
-    path('mainPage', views.mainPage),
+    path('answerPage/<int:id>/', views.answerPage, name = "answerPage"),
+    path('mainPage', views.mainPage, name = "mainPage"),
+    path('askQuestPage', views.askQuestPage, name = "askQuest"),
+    path('logInPage', views.logInPage, name = "login"),
+    path('registrationPage', views.registrationPage, name = "register"),
+    path('searchingByTagPage/<str:tag_name>', views.searchingByTagPage, name = "tag_page"),
+    path('settingsPage', views.settingsPage, name = "settings"),
 ]
