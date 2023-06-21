@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('answerPage/<int:id>/', views.answerPage, name = "answerPage"),
     path('mainPage', views.mainPage, name = "mainPage"),
+    path('hMainPage', views.hMainPage, name = "hMainPage"),
     path('askQuestPage', views.askQuestPage, name = "askQuest"),
     path('logInPage', views.logInPage, name = "login"),
     path('registrationPage', views.registrationPage, name = "register"),

@@ -1,20 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-ANSWER = [
-    {
-        'id': i,
-        'title':f'Answer {i}',
-        'text': f'Text {i}',
-    }for i in range(3)
-]
-
-TAG = [
-    {
-        'id': i,
-        'name': f'Name {i}',
-    }for i in range(3)
-]
 
 class Profile(models.Model):
     count_questions = models.IntegerField(default=0)
@@ -45,6 +31,9 @@ class Tag(models.Model):
 
 
 class QuestionManager(models.Manager):
+    def order_by_date(self):
+        return self.order_by('-creation_date')
+
     def order_by_rating(self):
         return self.order_by('-rating', '-answers_count')
 
@@ -62,6 +51,7 @@ class Question(models.Model):
     tags = models.ManyToManyField(Tag, blank=True)
     rating = models.IntegerField(default=0)
     answers_count = models.IntegerField(default=0)
+    creation_date = models.DateTimeField(auto_now_add=True, editable=False)
     objects = QuestionManager()
 
     def __str__(self):
