@@ -13,6 +13,8 @@ def mainPage(request):
     return render(request, 'mainPage.html', context=(base_context | paginate(models.Question.objects.order_by_rating(), request)))
 
 def answerPage(request, id: int):
+    if (not models.Question.objects.filter(id=id).exists()) or id < 0:
+        return render(request, "page404.html", status=404)
     base_context = {
         "popular_tags": models.Tag.objects.order_by_popular()[:6],
         "best_members": models.Profile.objects.all()[:5],
